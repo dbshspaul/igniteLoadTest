@@ -62,12 +62,13 @@ public class AppControllerTest {
 
     @Test
     public void putCacheData() throws Exception {
-        HttpClient client = HttpClientBuilder.create().build();
-        HttpPut request = new HttpPut(url + "putString");
+
 
         LocalDateTime start = LocalDateTime.now();
 
         for (int i = 0; i < 300000; i++) {
+            HttpClient client = HttpClientBuilder.create().build();
+            HttpPut request = new HttpPut(url + "putString");
             List<NameValuePair> urlParameters = new ArrayList<NameValuePair>();
             urlParameters.add(new BasicNameValuePair("cache", "my-cache"));
             urlParameters.add(new BasicNameValuePair("key", String.valueOf(i)));
